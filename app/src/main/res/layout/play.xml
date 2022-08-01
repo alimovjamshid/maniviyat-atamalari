@@ -13,14 +13,24 @@
         <Button
             android:id="@+id/manosi"
             android:layout_width="200dp"
+            android:textSize="18sp"
+            android:textColor="@color/cardview_light_background"
             android:layout_height="wrap_content"
-            android:text="Ma'nosi" />
-
+            android:background="@color/colorPrimary"
+            android:onClick="clickmano"
+            android:text="Маъноси" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
         <Button
             android:id="@+id/qollanishi"
             android:layout_width="200dp"
+            android:textSize="18sp"
+            android:textColor="@color/cardview_light_background"
             android:layout_height="wrap_content"
-            android:text="Qo'llanishi" />
+            android:onClick="clickqollanish"
+            android:background="@color/colorPrimary"
+            android:text="Қўлланиши" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,8 +2,11 @@ package com.chinthanrk.readexcel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,17 +32,18 @@ import java.util.Iterator;
 
 public class MainActivity extends AppCompatActivity {
     ListView listView;
-    public static String [] name=new String[189];
-    public static String [] mano=new String[190];
-    public static String [] qollanish=new String[190];
-    public static String [] manba=new String[190];
+    public static String [] name=new String[152];
+    public static String [] mano=new String[152];
+    public static String [] qollanish=new String[152];
     public static String aka;
     public static String uka;
+    Dialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        dialog=new Dialog(this);
         listView=findViewById(R.id.list);
         InputStream inputStream;
         AssetManager assetManager = getAssets();
@@ -53,18 +57,15 @@ public class MainActivity extends AppCompatActivity {
 
             HSSFSheet mySheet = workbook.getSheetAt(0);
 
-            for(int i=1;i<=153;i++){
+            for(int i=1;i<=152;i++){
                 name[i-1]=mySheet.getRow(i).getCell(0).getStringCellValue();
             }
-         /*   for(int i=1;i<=189;i++){
+            for(int i=1;i<=152;i++){
                 mano[i-1]=mySheet.getRow(i).getCell(1).getStringCellValue();
             }
-            for(int i=1;i<=189;i++){
+            for(int i=1;i<=152;i++){
                 qollanish[i-1]=mySheet.getRow(i).getCell(2).getStringCellValue();
             }
-            for(int i=1;i<=189;i++){
-                manba[i-1]=mySheet.getRow(i).getCell(3).getStringCellValue();
-            }*/
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -74,11 +75,18 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                switch (i){
-                    case 0:
-                       /* aka=mano[i];*/
-                }
+                aka=mano[i];
+                uka=qollanish[i];
+                dialog.setContentView(R.layout.play);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
             }
         });
+    }
+    public void clickmano(View view){
+        startActivity(new Intent(MainActivity.this,Manosi.class));
+    }
+    public void clickqollanish(View view){
+        startActivity(new Intent(MainActivity.this,qollanishi.class));
     }
 }

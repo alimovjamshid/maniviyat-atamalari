@@ -3,12 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/jamsh/OneDrive/Documents/GitHub/ReadExcelAndroid/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1685" />
+        <entry key="..\:/Users/jamsh/OneDrive/Documents/GitHub/ReadExcelAndroid/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1685" />
+        <entry key="..\:/Users/jamsh/OneDrive/Documents/GitHub/ReadExcelAndroid/app/src/main/res/drawable/image.xml" value="0.1685" />
         <entry key="..\:/Users/jamsh/OneDrive/Documents/GitHub/ReadExcelAndroid/app/src/main/res/layout/activity_listview.xml" value="0.264" />
         <entry key="..\:/Users/jamsh/OneDrive/Documents/GitHub/ReadExcelAndroid/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/jamsh/OneDrive/Documents/GitHub/ReadExcelAndroid/app/src/main/res/layout/activity_manba.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/jamsh/OneDrive/Documents/GitHub/ReadExcelAndroid/app/src/main/res/layout/activity_manosi.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/jamsh/OneDrive/Documents/GitHub/ReadExcelAndroid/app/src/main/res/layout/activity_qollanishi.xml" value="0.2604166666666667" />
         <entry key="..\:/Users/jamsh/OneDrive/Documents/GitHub/ReadExcelAndroid/app/src/main/res/layout/play.xml" value="0.264" />
+        <entry key="..\:/Users/jamsh/OneDrive/Documents/GitHub/ReadExcelAndroid/app/src/main/res/mipmap-anydpi-v26/asss.xml" value="0.149" />
+        <entry key="..\:/Users/jamsh/OneDrive/Documents/GitHub/ReadExcelAndroid/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1685" />
       </map>
     </option>
   </component>

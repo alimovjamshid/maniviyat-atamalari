@@ -2,10 +2,17 @@ package com.chinthanrk.readexcel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
@@ -21,66 +28,57 @@ import java.io.InputStream;
 import java.util.Iterator;
 
 public class MainActivity extends AppCompatActivity {
-
-    private EditText searchBox;
-    private Button search;
-    private TextView displayText;
-
+    ListView listView;
+    public static String [] name=new String[189];
+    public static String [] mano=new String[190];
+    public static String [] qollanish=new String[190];
+    public static String [] manba=new String[190];
+    public static String aka;
+    public static String uka;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViews();
-
+        listView=findViewById(R.id.list);
         InputStream inputStream;
         AssetManager assetManager = getAssets();
 
         try {
             inputStream = assetManager.open("FileHandler.xls");
 
-            POIFSFileSystem fileSystem = new POIFSFileSystem(inputStream); //create a POIFSFileSystem object
+            POIFSFileSystem fileSystem = new POIFSFileSystem(inputStream);
 
-            HSSFWorkbook workbook = new HSSFWorkbook(fileSystem); //create a workbook using the fileSystem object
+            HSSFWorkbook workbook = new HSSFWorkbook(fileSystem);
 
-            HSSFSheet mySheet = workbook.getSheetAt(1); //we get the first sheet from the workbook
+            HSSFSheet mySheet = workbook.getSheetAt(0);
 
-            Iterator<Row> rowIterator = mySheet.rowIterator();
-            int rowNumber = 4;     //the data starts from row 4 in FileHandler.xls
-            displayText.append("\n");
-
-            while (rowIterator.hasNext()) {
-                HSSFRow myRow = (HSSFRow) rowIterator.next();
-
-                Iterator<Cell> cellIterator = myRow.cellIterator();
-                int colNum = 0;
-                String collegeName = "";//, branchName = "", seatPool = "";
-                while (cellIterator.hasNext()) {
-                    HSSFCell myCell = (HSSFCell) cellIterator.next();
-                    if (colNum == 1)
-                        collegeName = myCell.toString();
-//                    if (colNum == 2)
-//                        branchName = myCell.toString();
-//                    if (colNum == 5)
-//                        seatPool = myCell.toString();
-                    colNum++;
-                    displayText.append(collegeName +"\n");
-                }
-
-                rowNumber++;
+            for(int i=1;i<=153;i++){
+                name[i-1]=mySheet.getRow(i).getCell(0).getStringCellValue();
             }
-
-
+         /*   for(int i=1;i<=189;i++){
+                mano[i-1]=mySheet.getRow(i).getCell(1).getStringCellValue();
+            }
+            for(int i=1;i<=189;i++){
+                qollanish[i-1]=mySheet.getRow(i).getCell(2).getStringCellValue();
+            }
+            for(int i=1;i<=189;i++){
+                manba[i-1]=mySheet.getRow(i).getCell(3).getStringCellValue();
+            }*/
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-
-    }
-
-    private void findViews() {
-        search = findViewById(R.id.search);
-        searchBox = findViewById(R.id.input);
-        displayText = findViewById(R.id.displayText);
+        ArrayAdapter<String>adapter=new ArrayAdapter<>(this,R.layout.support_simple_spinner_dropdown_item,name);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                switch (i){
+                    case 0:
+                       /* aka=mano[i];*/
+                }
+            }
+        });
     }
 }
